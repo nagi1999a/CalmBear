@@ -21,5 +21,5 @@ Pre-built binaries are on the Release page, and the version maps to the Bear ver
 4. Inside the container, run the build script: `bash build.sh`
 5. After building, built files will be in `output` folder, and you can close the container now: `exit`
 6. Install 32-bit `libc` and `libstdc++` and copy all files in `output` folder to the desired path.
-   1. For Debian-based distribution, just run `bash debian-install.sh`.
+   1. For Debian-based distribution, just run `sudo bash debian-install.sh`.
    2. For other distributions, manually put the libraries and executables will be needed.

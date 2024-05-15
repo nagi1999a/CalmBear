@@ -22,7 +22,7 @@ mkdir -p output/x86_64
 
 # Build 32bit gRPC
 COLOR_INFO "Bulding 32bit gRPC..."
-export PKG_CONFIG_PATH=/usr/local/lib/i386-linux-gnu/pkgconfig:/usr/lib/i386-linux-gnu/pkgconfig
+export PKG_CONFIG_PATH=/usr/lib/i386-linux-gnu/pkgconfig
 mkdir -p grpc/cmake/build32
 cd grpc/cmake/build32
 cmake ../.. -DgRPC_INSTALL=ON                 \
@@ -35,6 +35,7 @@ cmake ../.. -DgRPC_INSTALL=ON                 \
               -DgRPC_ZLIB_PROVIDER=package    \
               -DCMAKE_C_FLAGS="-m32"          \
               -DCMAKE_CXX_FLAGS="-m32"        \
+              -DCMAKE_INSTALL_PREFIX="/usr"   \
               -DCMAKE_INSTALL_LIBDIR=lib/i386-linux-gnu
 make -j8
 make install
@@ -50,6 +51,7 @@ cmake .. -DPKG_CONFIG_EXECUTABLE="/usr/bin/pkg-config1" \
          -DENABLE_MULTILIB=ON                           \
          -DCMAKE_C_FLAGS="-m32"                         \
          -DCMAKE_CXX_FLAGS="-m32"                       \
+         -DCMAKE_INSTALL_PREFIX="/usr"                  \
          -DCMAKE_INSTALL_LIBDIR=lib/i386-linux-gnu
 make -j8
 cd "$SOURCE_DIR"
@@ -57,7 +59,7 @@ cp -r Bear/cmake-build32/stage/* output/i386/
 
 # Build 64bit gRPC
 COLOR_INFO "Bulding 64bit gRPC..."
-export PKG_CONFIG_PATH=/usr/local/lib/x86_64-linux-gnu/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig
+export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
 mkdir -p grpc/cmake/build64
 cd grpc/cmake/build64
 cmake ../.. -DgRPC_INSTALL=ON                 \
@@ -70,6 +72,7 @@ cmake ../.. -DgRPC_INSTALL=ON                 \
               -DgRPC_ZLIB_PROVIDER=package    \
               -DCMAKE_C_FLAGS="-m64"          \
               -DCMAKE_CXX_FLAGS="-m64"        \
+              -DCMAKE_INSTALL_PREFIX="/usr"   \
               -DCMAKE_INSTALL_LIBDIR=lib/x86_64-linux-gnu
 make -j8
 make install
@@ -85,6 +88,7 @@ cmake .. -DPKG_CONFIG_EXECUTABLE="/usr/bin/pkg-config1" \
          -DENABLE_MULTILIB=ON                           \
          -DCMAKE_C_FLAGS="-m64"                         \
          -DCMAKE_CXX_FLAGS="-m64"                       \
+         -DCMAKE_INSTALL_PREFIX="/usr"                  \
          -DCMAKE_INSTALL_LIBDIR=lib/x86_64-linux-gnu
 make -j8
 cd "$SOURCE_DIR"
