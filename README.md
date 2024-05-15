@@ -1,5 +1,5 @@
 # CalmBear
-(Almost) Static build script for Bear - ʕ·ᴥ·ʔ Build EAR with both 32-bit and 64-bit support
+(Almost) Static build script for [Bear](https://github.com/rizsotto/Bear) - ʕ·ᴥ·ʔ Build EAR with both 32-bit and 64-bit support
 
 ## About
 Bear is an excellent tool for collecting compiler flags and information and producing helpful information for IDE to provide suggestions.
